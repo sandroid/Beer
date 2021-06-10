@@ -5,17 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prepfully.beer.BeerAdapter
 import com.prepfully.beer.databinding.MainFragmentBinding
 
-class MainFragment : Fragment() {
+class BeerFragment : Fragment() {
 
-    private val viewModel : BeerViewModel by viewModels()
-
+    private val viewModel: BeerViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        ViewModelProvider(this, BeerViewModel.Factory(activity.application))
+            .get(BeerViewModel::class.java)
+    }
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = BeerFragment()
     }
 
     override fun onCreateView(
