@@ -34,6 +34,7 @@ class BeerAdapter : ListAdapter<Beer, BeerAdapter.BeerViewHolder>(BeerDiffUtil()
             with(binding.beerImage) {
                 Glide.with(this)
                     .load(beer.image_url)
+                    .error(R.drawable.error_image)
                     .into(this)
             }
         }

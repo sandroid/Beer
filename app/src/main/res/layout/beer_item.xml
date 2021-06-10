@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="5dp">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/beer_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:src="@mipmap/ic_launcher"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/beer_name"
-        tools:text="Beer Name"
-        app:layout_constraintTop_toTopOf="@+id/beer_image"
-        app:layout_constraintStart_toEndOf="@+id/beer_image"
-        android:textAppearance="?attr/textAppearanceHeadline5"
-        />
+        <ImageView
+            android:id="@+id/beer_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/error_image" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/beer_abv"
-        tools:text="11%"
-        app:layout_constraintTop_toBottomOf="@+id/beer_name"
-        app:layout_constraintStart_toEndOf="@+id/beer_image"
-        android:textAppearance="?attr/textAppearanceBody2"
-        />
+        <TextView
+            android:id="@+id/beer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintStart_toEndOf="@+id/beer_image"
+            app:layout_constraintTop_toTopOf="@+id/beer_image"
+            tools:text="Beer Name" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/beer_description"
-        tools:text="@string/beer_description"
-        app:layout_constraintTop_toBottomOf="@+id/beer_abv"
-        app:layout_constraintStart_toEndOf="@+id/beer_image"
-        android:textAppearance="?attr/textAppearanceBody2"
-        />
+        <TextView
+            android:id="@+id/beer_abv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toEndOf="@+id/beer_image"
+            app:layout_constraintTop_toBottomOf="@+id/beer_name"
+            tools:text="11%" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/beer_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toEndOf="@+id/beer_image"
+            app:layout_constraintTop_toBottomOf="@+id/beer_abv"
+            android:maxWidth="250dp"
+            tools:text="@string/beer_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
