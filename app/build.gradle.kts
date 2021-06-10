@@ -49,9 +49,6 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.10")
@@ -75,4 +72,24 @@ dependencies {
 
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+
+    // testimplementation(for pure JVM unit tests
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+
+    // androidTestimplementation(for Android instrumentation tests
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+    testImplementation("junit:junit:4.+")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0'")
+
+    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    testImplementation("org.mockito:mockito-core:3.4.6")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+    testImplementation("io.mockk:mockk:1.10.0")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
 }

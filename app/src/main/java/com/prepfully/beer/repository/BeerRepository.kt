@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.prepfully.beer.network.Beer
 import com.prepfully.beer.network.BeerApi
-import kotlinx.coroutines.withContext
 
 class BeerRepository {
 

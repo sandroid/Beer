@@ -16,7 +16,7 @@ class BeerFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        ViewModelProvider(this, BeerViewModel.Factory(activity.application))
+        ViewModelProvider(this, BeerViewModel.Factory())
             .get(BeerViewModel::class.java)
     }
     companion object {

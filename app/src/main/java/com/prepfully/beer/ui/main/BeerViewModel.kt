@@ -3,13 +3,11 @@ package com.prepfully.beer.ui.main
 import android.app.Application
 import androidx.lifecycle.*
 import com.prepfully.beer.network.Beer
-import com.prepfully.beer.network.BeerApi
 import com.prepfully.beer.repository.BeerRepository
-import com.prepfully.beer.repository.Result
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class BeerViewModel(app: Application, repository: BeerRepository) : AndroidViewModel(app) {
+class BeerViewModel(repository: BeerRepository) : ViewModel() {
 
     private val _beerList = MutableLiveData<List<Beer>>()
     val beerList: LiveData<List<Beer>>
@@ -27,12 +25,11 @@ class BeerViewModel(app: Application, repository: BeerRepository) : AndroidViewM
      */
     @Suppress("UNCHECKED_CAST")
     class Factory(
-        private val app: Application,
         private val repository: BeerRepository = BeerRepository()
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(BeerViewModel::class.java)) {
-                return BeerViewModel(app, repository) as T
+                return BeerViewModel(repository) as T
             }
             throw IllegalArgumentException("unable to create viewmodel")
         }
