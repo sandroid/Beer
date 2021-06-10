@@ -11,6 +11,8 @@ import com.prepfully.beer.network.Beer
 
 class BeerAdapter : ListAdapter<Beer, BeerAdapter.BeerViewHolder>(BeerDiffUtil()) {
 
+    var onClickListener : ((String) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = BeerItemBinding.inflate(inflater)
@@ -18,17 +20,21 @@ class BeerAdapter : ListAdapter<Beer, BeerAdapter.BeerViewHolder>(BeerDiffUtil()
     }
 
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onClickListener)
     }
 
     class BeerViewHolder(private val binding: BeerItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(beer: Beer) {
+        fun bind(beer: Beer, onClickListener : ((String) -> Unit)?) {
             binding.beerName.text = beer.name
             binding.beerDescription.text = beer.description
             binding.beerAbv.text = "ABV = ${beer.abv}"
+            binding.beerImage.setOnClickListener {
+                onClickListener?.invoke(beer.name)
+            }
             with(binding.beerImage) {
                 Glide.with(this)
                     .load(beer.image_url)
+                    .error(R.drawable.error_image)
                     .into(this)
             }
         }
