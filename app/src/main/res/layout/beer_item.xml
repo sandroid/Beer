@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="16dp"
+    android:layout_marginTop="20dp"
     app:cardCornerRadius="0dp"
+    android:backgroundTint="@color/cardview_shadow_end_color"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +30,7 @@
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toEndOf="@+id/beer_image"
             app:layout_constraintTop_toTopOf="@+id/beer_image"
+            android:maxWidth="250dp"
             tools:text="Beer Name" />
 
         <TextView

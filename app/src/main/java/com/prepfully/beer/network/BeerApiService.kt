@@ -20,10 +20,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface BeerApiService {
-
     @GET("v2/beers")
     suspend fun getBeers() : Response<List<Beer>>
-
 }
 
 object BeerApi {
