@@ -5,18 +5,21 @@ import androidx.lifecycle.MutableLiveData
 import com.prepfully.beer.network.Beer
 import com.prepfully.beer.network.BeerApi
 
-class BeerRepository {
+sealed class NetworkResult<out T : Any> {
+    data class Success<out T : Any>(val data: List<Beer>) : NetworkResult<T>()
+    data class Error(val exception: String) : NetworkResult<Nothing>()
+}
 
-    suspend fun getBeers() : LiveData<List<Beer>> {
-        val beerList = MutableLiveData<List<Beer>>()
+class BeerRepository {
+    suspend fun getBeers() : LiveData<NetworkResult<List<Beer>>> {
+        val beerList = MutableLiveData<NetworkResult<List<Beer>>>()
         val response = BeerApi.retrofitService.getBeers()
 
        if (response.isSuccessful &&  response.errorBody() == null) {
-            beerList.value = response.body()
+            beerList.value = response.body()?.let { NetworkResult.Success(it) }
         } else {
-            beerList.value = emptyList()
+            beerList.value = NetworkResult.Error("network call failed")
         }
         return beerList
     }
-
 }

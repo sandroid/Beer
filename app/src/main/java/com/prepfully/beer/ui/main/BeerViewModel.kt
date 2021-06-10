@@ -1,9 +1,9 @@
 package com.prepfully.beer.ui.main
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.prepfully.beer.network.Beer
 import com.prepfully.beer.repository.BeerRepository
+import com.prepfully.beer.repository.NetworkResult
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
@@ -13,9 +13,18 @@ class BeerViewModel(repository: BeerRepository) : ViewModel() {
     val beerList: LiveData<List<Beer>>
         get() = _beerList
 
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String>
+        get() = _errorMessage
+
     init {
         viewModelScope.launch {
-            _beerList.value = repository.getBeers().value
+            when(val response = repository.getBeers().value) {
+                is NetworkResult.Error -> _errorMessage.value = response.exception
+                is NetworkResult.Success -> {
+                    _beerList.value = response.data
+                }
+            }
         }
     }
 

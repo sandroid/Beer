@@ -14,7 +14,7 @@ import com.prepfully.beer.databinding.BeerFragmentBinding
 class BeerFragment : Fragment() {
 
     private val viewModel: BeerViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
+        requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
         ViewModelProvider(this, BeerViewModel.Factory())
@@ -37,8 +37,10 @@ class BeerFragment : Fragment() {
         }
         binding.beerRv.adapter = adapter
 
-        viewModel.beerList.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+        viewModel.beerList.observe(viewLifecycleOwner, adapter::submitList)
+
+        viewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
+            Toast.makeText(context, "Error loading  page: $errorMessage", Toast.LENGTH_LONG).show()
         }
 
         return binding.root
