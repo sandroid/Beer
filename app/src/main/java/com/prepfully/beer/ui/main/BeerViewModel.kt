@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.prepfully.beer.network.Beer
 import com.prepfully.beer.network.BeerApi
 import com.prepfully.beer.repository.BeerRepository
+import com.prepfully.beer.repository.Result
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 

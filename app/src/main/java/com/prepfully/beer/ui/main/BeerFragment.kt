@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prepfully.beer.BeerAdapter
-import com.prepfully.beer.databinding.MainFragmentBinding
+import com.prepfully.beer.databinding.BeerFragmentBinding
 
 class BeerFragment : Fragment() {
 
@@ -28,7 +28,7 @@ class BeerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val binding = MainFragmentBinding.inflate(layoutInflater)
+        val binding = BeerFragmentBinding.inflate(layoutInflater)
         binding.beerRv.layoutManager = LinearLayoutManager(context)
         val adapter = BeerAdapter()
         binding.beerRv.adapter = adapter
