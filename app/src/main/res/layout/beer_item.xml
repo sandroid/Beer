@@ -30,25 +30,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/beer_description"
-        tools:text="Beer Description"
+        android:id="@+id/beer_abv"
+        tools:text="11%"
         app:layout_constraintTop_toBottomOf="@+id/beer_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAppearance="?attr/textAppearanceHeadline6"
-
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/beer_abv"
-        tools:text="11%"
-        app:layout_constraintTop_toBottomOf="@+id/beer_description"
+        android:id="@+id/beer_description"
+        tools:text="Beer Description"
+        app:layout_constraintTop_toBottomOf="@+id/beer_abv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAppearance="?attr/textAppearanceHeadline6"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

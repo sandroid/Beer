@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prepfully.beer.BeerAdapter
@@ -31,6 +32,9 @@ class BeerFragment : Fragment() {
         val binding = BeerFragmentBinding.inflate(layoutInflater)
         binding.beerRv.layoutManager = LinearLayoutManager(context)
         val adapter = BeerAdapter()
+        adapter.onClickListener  = { name ->
+            Toast.makeText(context, "Clicked on $name", Toast.LENGTH_LONG).show()
+        }
         binding.beerRv.adapter = adapter
 
         viewModel.beerList.observe(viewLifecycleOwner) {
