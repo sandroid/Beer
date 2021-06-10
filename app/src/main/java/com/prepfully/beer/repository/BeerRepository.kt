@@ -9,7 +9,13 @@ class BeerRepository {
 
     suspend fun getBeers() : LiveData<List<Beer>> {
         val beerList = MutableLiveData<List<Beer>>()
-        beerList.value = BeerApi.retrofitService.getBeers()
+        val response = BeerApi.retrofitService.getBeers()
+
+       if (response.isSuccessful &&  response.errorBody() == null) {
+            beerList.value = response.body()
+        } else {
+            beerList.value = emptyList()
+        }
         return beerList
     }
 

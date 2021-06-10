@@ -2,6 +2,7 @@ package com.prepfully.beer.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -21,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 interface BeerApiService {
 
     @GET("v2/beers")
-    suspend fun getBeers() : List<Beer>
+    suspend fun getBeers() : Response<List<Beer>>
 
 }
 
