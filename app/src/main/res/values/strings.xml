@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Beer</string>
     <string name="beer_description">Beer, alcoholic beverage produced by extracting raw materials with water, boiling (usually with hops), and fermenting. In some countries beer is defined by law—as in Germany, where the standard ingredients, besides water, are malt (kiln-dried germinated barley), hops, and yeast. top 20 beer-consuming countries Top 20 beer-consuming countries.</string>
+    <string name="error_message">Houston, we have a problem</string>
 </resources>

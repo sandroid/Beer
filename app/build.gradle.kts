@@ -66,6 +66,12 @@ dependencies {
 
     // Retrofit with Moshi Converter
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit:retrofit:1.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.8.1")
+    implementation("com.jakewharton.retrofit:retrofit1-okhttp3-client:1.0.2")
+
+    implementation("com.jakewharton.timber:timber:4.7.1")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")

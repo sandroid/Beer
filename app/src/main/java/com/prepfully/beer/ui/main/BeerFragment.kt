@@ -40,7 +40,8 @@ class BeerFragment : Fragment() {
         viewModel.beerList.observe(viewLifecycleOwner, adapter::submitList)
 
         viewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
-            Toast.makeText(context, "Error loading  page: $errorMessage", Toast.LENGTH_LONG).show()
+            binding.errorMessage.text = errorMessage
+            binding.errorMessage.visibility = View.VISIBLE
         }
 
         return binding.root
